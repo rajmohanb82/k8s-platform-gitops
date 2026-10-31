@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: platformops
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/rajmohanb82/k8s-platform-gitops.git
+    targetRevision: main
+    path: helm/platformops
+    helm:
+      releaseName: platformops
+      valueFiles:
+        - values-gitops.yaml
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: platformops
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=false
