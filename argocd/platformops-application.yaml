@@ -20,5 +20,9 @@ spec:
     namespace: platformops
 
   syncPolicy:
+    automated:
+      enabled: true
+      prune: false
+      selfHeal: true
     syncOptions:
       - CreateNamespace=false
