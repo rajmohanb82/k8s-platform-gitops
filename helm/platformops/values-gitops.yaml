@@ -1,16 +1,13 @@
 replicaCount: 4
-
 image:
-  repository: platformops
-  tag: v1
+  repository: ghcr.io/rajmohanb82/platformops
+  tag: sha-6379b1679093e69900d685a3e3f790da8a045be3
   pullPolicy: IfNotPresent
-
 service:
   type: NodePort
   port: 80
   targetPort: 5252
   nodePort: 30080
-
 resources:
   requests:
     cpu: 50m
@@ -18,6 +15,5 @@ resources:
   limits:
     cpu: 250m
     memory: 256Mi
-
 app:
-  version: "v1.1.0"
+  version: v1.1.0
