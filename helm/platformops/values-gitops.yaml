@@ -1,7 +1,7 @@
 replicaCount: 4
 image:
   repository: ghcr.io/rajmohanb82/platformops
-  tag: sha-a7f4b2c932a5a172a621de3ac604cdd0cb5f6fb2
+  tag: sha-6379b1679093e69900d685a3e3f790da8a045be3
   pullPolicy: IfNotPresent
 service:
   type: NodePort
