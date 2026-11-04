@@ -5,6 +5,13 @@ metadata:
   namespace: argocd
 spec:
   project: default
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      name: platformops
+      namespace: platformops
+      jsonPointers:
+        - /spec/replicas
 
   source:
     repoURL: https://github.com/rajmohanb82/k8s-platform-gitops.git
@@ -20,5 +27,9 @@ spec:
     namespace: platformops
 
   syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
     syncOptions:
       - CreateNamespace=false
+      - RespectIgnoreDifferences=true
